@@ -1,0 +1,63 @@
+name: "Test Template"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request: ~
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  # renovate: datasource=pypi depName=copier
+  COPIER_VERSION: 9.7.1
+  # renovate: datasource=pypi depName=uv
+  UV_VERSION: 0.10.9
+
+jobs:
+  generate-project:
+    name: Generate & validate project
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Install uv ${{ env.UV_VERSION }}
+        uses: astral-sh/setup-uv@5a095e7a2014a4212f075830d4f7277575a9d098  # v7.3.1
+        with:
+          version: ${{ env.UV_VERSION }}
+
+      - name: Install Copier
+        run: uv tool install copier==${{ env.COPIER_VERSION }}
+
+      - name: Generate project with defaults
+        run: |
+          copier copy --trust --defaults \
+            --data project_name=test-project \
+            --data author_name="Test Author" \
+            --data author_email="test@example.com" \
+            --data github_username=test-user \
+            . /tmp/test-project
+
+      - name: Verify generated project structure
+        run: |
+          test -f /tmp/test-project/pyproject.toml
+          test -f /tmp/test-project/.pre-commit-config.yaml
+          test -f /tmp/test-project/.gitignore
+          test -f /tmp/test-project/renovate.json5
+          test -f /tmp/test-project/ruff.toml
+          test -d /tmp/test-project/src
+          test -d /tmp/test-project/.github/workflows
+
+      - name: Verify uv lock is valid
+        working-directory: /tmp/test-project
+        run: uv lock --check

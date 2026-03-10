@@ -1,0 +1,79 @@
+_subdirectory: template
+_min_copier_version: "9.0.0"
+
+_exclude:
+  - "{% if license == 'None' %}LICENSE{% endif %}"
+
+_tasks:
+  - "uv lock"
+
+_message_after_copy: |
+  Your project "{{ project_name }}" has been created successfully!
+
+  Next steps:
+
+  1. Change directory to the project root:
+     $ cd {{ _copier_conf.dst_path }}
+
+  2. Initialize a git repository and make the initial commit:
+     $ git init && git add . && git commit -m "Initial commit"
+
+  3. Install git hooks (requires prek: https://prek.j178.dev/installation/):
+     $ prek install
+
+_message_after_update: |
+  Your project "{{ project_name }}" has been updated successfully!
+  In case there are any conflicts, please resolve them.
+
+# ---- Questions ----
+
+project_name:
+  type: str
+  help: "Project name (e.g., my-awesome-project)"
+
+package_name:
+  type: str
+  default: "{{ project_name | lower | replace('-', '_') | replace(' ', '_') }}"
+  when: false
+
+project_description:
+  type: str
+  help: "Project description (one line)"
+  default: ""
+
+author_name:
+  type: str
+  help: "Author name"
+
+author_email:
+  type: str
+  help: "Author email"
+
+github_username:
+  type: str
+  help: "GitHub username or organization"
+
+python_version:
+  type: str
+  help: "Python minor version"
+  default: "3.14"
+
+license:
+  type: str
+  help: "License"
+  choices:
+    - "MIT"
+    - "Apache-2.0"
+    - "GPL-3.0"
+    - "None"
+  default: "MIT"
+
+frameworks:
+  type: str
+  help: "Frameworks & libraries to include (select none for a bare project)"
+  multiselect: true
+  choices:
+    - "Click"
+    - "FastAPI"
+    - "LangChain"
+  default: []

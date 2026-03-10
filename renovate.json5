@@ -1,0 +1,8 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    // TODO: Pin to hash
+    // https://github.com/ulgens/renovate-presets
+    "github>ulgens/renovate-presets:all.json5#v0.0.4",
+  ],
+}
