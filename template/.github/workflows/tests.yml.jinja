@@ -1,3 +1,4 @@
+{% raw -%}
 # Adapted from https://docs.astral.sh/uv/guides/integration/github/#using-uv-in-github-actions
 
 name: "Tests"
@@ -42,7 +43,24 @@ jobs:
 
       - name: Install Python dependencies
         run: uv sync --group dev
+{% endraw %}
+{%- if use_codecov %}
+{% raw %}
+      - name: Run tests with coverage
+        working-directory: ./src
+        run: |
+          uv run coverage run -m pytest -n auto
+          uv run coverage report
+          uv run coverage xml
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de  # v5.5.2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+{% endraw %}
+{%- else %}
 
       - name: Run tests
         working-directory: ./src
         run: uv run pytest -n auto
+{%- endif %}

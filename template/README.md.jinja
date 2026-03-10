@@ -9,6 +9,9 @@
 [![Renovate](https://img.shields.io/badge/-renovate-308BE3?logo=renovate&labelColor=555)](https://github.com/renovatebot/renovate)
 
 [![Git Hooks](https://img.shields.io/github/actions/workflow/status/{{ github_username }}/{{ project_name }}/git-hooks.yml?logo=github&label=Git%20Hooks)](https://github.com/{{ github_username }}/{{ project_name }}/actions/workflows/git-hooks.yml)
+{%- if use_codecov %}
+[![codecov](https://codecov.io/gh/{{ github_username }}/{{ project_name }}/graph/badge.svg?token=EBNHI3IK23)](https://codecov.io/gh/{{ github_username }}/{{ project_name }})
+{%- endif %}
 
 </div>
 
