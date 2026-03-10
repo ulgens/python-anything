@@ -1,0 +1,44 @@
+[project]
+name = "{{ project_name }}"
+version = "0.1.0"
+description = "{{ project_description }}"
+readme = "README.md"
+authors = [
+    { name = "{{ author_name }}", email = "{{ author_email }}" },
+]
+requires-python = "=={{ python_version }}.*"
+classifiers = [
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: {{ python_version }}",
+]
+dependencies = [
+{%- if "Click" in frameworks %}
+    "click==8.3.1",
+{%- endif %}
+{%- if "FastAPI" in frameworks %}
+    "fastapi==0.135.1",
+{%- endif %}
+{%- if "LangChain" in frameworks %}
+    "langchain==1.2.10",
+{%- endif %}
+]
+
+[dependency-groups]
+dev = [
+    # TODO:
+    #   Find a way to define the following in this file:
+    #   PYTHONBREAKPOINT = "ipdb.set_trace"
+    "ipdb==0.13.13",
+    "ipython==9.11.0",
+    "pytest==9.0.2",
+    "pytest-xdist==3.8.0",
+]
+
+[tool.uv]
+# The earliest version that supports the current lock file revision
+required-version = ">=0.8.4"
+package = false
+
+[tool.pyproject-fmt]
+indent = 4
+keep_full_version = true

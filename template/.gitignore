@@ -174,7 +174,3 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
-
-### Extras
-# Test outputs
-copier-test-*/
