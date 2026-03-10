@@ -46,6 +46,7 @@ copier copy --trust gh:ulgens/python-anything ./my-project
 | `python_version` | Python minor version | `3.14` |
 | `license` | License type | `MIT` (MIT, Apache-2.0, GPL-3.0, None) |
 | `frameworks` | Frameworks & libraries | `[]` (Click, FastAPI, LangChain) |
+| `use_codecov` | Enable Codecov integration | `false` |
 
 ### After generation
 
@@ -92,6 +93,16 @@ Selecting frameworks affects:
 - **pyproject.toml**: Adds pinned dependencies for the selected frameworks
 - **ruff.toml**: Enables framework-specific lint rules:
   - FastAPI: `FAST` rules
+
+## Codecov setup
+
+If you enabled Codecov integration (`use_codecov: true`), follow these steps after generation:
+
+1. Sign up at [codecov.io](https://about.codecov.io/) and add your repository.
+2. Copy the upload token from Codecov's repository settings.
+3. Add the token as a GitHub Actions secret named `CODECOV_TOKEN` in your repository settings (Settings > Secrets and variables > Actions).
+
+Once configured, coverage reports will be uploaded automatically on every push to `main` and on pull requests.
 
 ## Related templates
 

@@ -77,3 +77,8 @@ frameworks:
     - "FastAPI"
     - "LangChain"
   default: []
+
+use_codecov:
+  type: bool
+  help: "Enable Codecov integration for test coverage reporting"
+  default: false
