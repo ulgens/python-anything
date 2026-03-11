@@ -82,3 +82,8 @@ use_codecov:
   type: bool
   help: "Enable Codecov integration for test coverage reporting"
   default: false
+
+use_ty:
+  type: bool
+  help: "Enable ty type checker (Astral)"
+  default: false

@@ -35,6 +35,9 @@ dev = [
     "ipython==9.11.0",
     "pytest==9.0.2",
     "pytest-xdist==3.8.0",
+{%- if use_ty %}
+    "ty==0.0.21",
+{%- endif %}
 ]
 
 [tool.uv]

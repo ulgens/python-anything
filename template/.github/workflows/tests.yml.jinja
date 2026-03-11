@@ -44,6 +44,12 @@ jobs:
       - name: Install Python dependencies
         run: uv sync --group dev
 {% endraw %}
+{%- if use_ty %}
+        # TODO: Use the git hook when there is one: https://github.com/astral-sh/ty/issues/269
+      - name: Type check
+        run: uv run ty check .
+
+{%- endif %}
 {%- if use_codecov %}
 {% raw %}
       - name: Run tests with coverage
