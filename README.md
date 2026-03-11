@@ -17,6 +17,7 @@ A [Copier](https://copier.readthedocs.io/) template for Python projects with opi
 - **[uv](https://github.com/astral-sh/uv)**: Python dependency management
 - **[prek](https://github.com/j178/prek)**: Git hooks manager/wrapper
 - **[ruff](https://github.com/astral-sh/ruff)**: Linting and formatting
+- **[ty](https://github.com/astral-sh/ty)**: Type checking (optional)
 - **[Renovate](https://github.com/renovatebot/renovate)**: Automated dependency updates
 - **[pytest](https://docs.pytest.org/)** + **[pytest-xdist](https://github.com/pytest-dev/pytest-xdist)**: Python testing
 
@@ -47,6 +48,7 @@ copier copy --trust gh:ulgens/python-anything ./my-project
 | `license` | License type | `MIT` (MIT, Apache-2.0, GPL-3.0, None) |
 | `frameworks` | Frameworks & libraries | `[]` (Click, FastAPI, LangChain) |
 | `use_codecov` | Enable Codecov integration | `false` |
+| `use_ty` | Enable ty type checker | `false` |
 
 ### After generation
 
