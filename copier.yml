@@ -6,6 +6,7 @@ _exclude:
 
 _tasks:
   - "uv lock"
+  - "git init && git add . && prek run --all-files ; git add ."
 
 _message_after_copy: |
   Your project "{{ project_name }}" has been created successfully!
@@ -15,11 +16,11 @@ _message_after_copy: |
   1. Change directory to the project root:
      $ cd {{ _copier_conf.dst_path }}
 
-  2. Initialize a git repository and make the initial commit:
-     $ git init && git add . && git commit -m "Initial commit"
-
-  3. Install git hooks (requires prek: https://prek.j178.dev/installation/):
+  2. Install git hooks (requires prek: https://prek.j178.dev/installation/):
      $ prek install
+
+  3. Make the initial commit:
+     $ git commit -m "Initial commit"
 
 _message_after_update: |
   Your project "{{ project_name }}" has been updated successfully!

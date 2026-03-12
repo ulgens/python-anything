@@ -11,6 +11,10 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: {{ python_version }}",
 ]
+
+{%- if not frameworks %}
+dependencies = []
+{%- else %}
 dependencies = [
 {%- if "Click" in frameworks %}
     "click==8.3.1",
@@ -22,6 +26,7 @@ dependencies = [
     "langchain==1.2.10",
 {%- endif %}
 ]
+{%- endif %}
 
 [dependency-groups]
 dev = [
