@@ -28,7 +28,21 @@
 - [prek](https://prek.j178.dev/installation/)
 
 ## Implemented tools & patterns
-- ruff: ruff checks are run as git hooks and wrapped in CI. Configuration is in `ruff.toml`.
+- [Ruff](https://docs.astral.sh/ruff/): Linting and formatting. Runs as git hooks and in CI. Configuration is in `ruff.toml`.
+{%- if use_ty %}
+- [ty](https://github.com/astral-sh/ty): Type checking. Runs in CI.
+{%- endif %}
+- [pytest](https://docs.pytest.org/) with [pytest-xdist](https://github.com/pytest-dev/pytest-xdist): Testing with parallel execution. Runs in CI.
+{%- if use_codecov %}
+- [Codecov](https://about.codecov.io/): Test coverage reporting. Runs in CI.
+{%- endif %}
+- [pyproject-fmt](https://github.com/tox-dev/pyproject-fmt): `pyproject.toml` formatter. Runs as a git hook.
+- [yamlfmt](https://github.com/google/yamlfmt): YAML formatter. Runs as a git hook. Configuration is in `yamlfmt.yaml`.
+- [codespell](https://github.com/codespell-project/codespell): Spell checker. Runs as a git hook.
+- [zizmor](https://github.com/zizmorcore/zizmor): GitHub Actions security auditor. Runs as a git hook.
+- [check-jsonschema](https://github.com/python-jsonschema/check-jsonschema): Validates GitHub workflow files and Renovate configuration. Runs as git hooks.
+- [pre-commit-hooks](https://github.com/pre-commit/pre-commit-hooks): General file checks (large files, case conflicts, merge conflicts, TOML/YAML validation, private key detection, trailing whitespace, end-of-file fixer). Runs as git hooks.
+- [Renovate](https://docs.renovatebot.com/): Automated dependency updates. Configuration is in `renovate.json5`.
 
 ## Contribution
 - Install git hooks with `prek install` and ensure your changes pass the checks before creating a pull request.
