@@ -9,7 +9,7 @@
 A [Copier](https://copier.readthedocs.io/) template for Python projects with opinionated tooling.
 
 > **Warning**
-> This template is in a pretty early stage of development. Things can be instable and changed without a notice. Use at your own risk.
+> This template is in a pretty early stage of development. Things can be unstable and changed without notice. Use at your own risk.
 
 ## What's included
 
