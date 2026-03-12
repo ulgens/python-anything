@@ -6,6 +6,9 @@ _exclude:
 
 _tasks:
   - "uv lock"
+  # TODO:
+  #   Check for Windows
+  #   https://github.com/ulgens/python-anything/pull/8#discussion_r2923211547
   - "git init && git add . && prek run --all-files ; git add ."
 
 _message_after_copy: |
