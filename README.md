@@ -61,6 +61,41 @@ git commit -m "Initial commit"
 git push -u origin main
 ```
 
+### Adapt an existing project
+
+To adopt this template in a project that already exists:
+
+1. Make sure all changes are committed so you can review the template's changes as a diff:
+   ```bash
+   git status  # should be clean
+   ```
+
+2. Run `copier copy` from the project root:
+   ```bash
+   copier copy --trust gh:ulgens/python-anything .
+   ```
+
+3. Answer the template questions to match your existing project (name, author, Python version, etc.).
+
+4. Review the changes. Key files to check:
+   - **`pyproject.toml`**: Merge your existing dependencies into the template's structure. The template uses `dependency-groups` for dev dependencies and pinned versions.
+   - **Source layout**: The template expects code in `src/` and tests in `src/tests/`. Move your code if it lives elsewhere.
+   - **`.github/workflows/`**: Decide whether to keep your existing CI or adopt the template's.
+   - **Config files** (`ruff.toml`, `.pre-commit-config.yaml`, etc.): Generally safe to accept the template's versions.
+
+5. If you made manual changes after the copy (e.g., merging dependencies, moving files), run the hooks again:
+   ```bash
+   prek run --all-files
+   ```
+
+6. Review the full diff and commit:
+   ```bash
+   git diff --staged
+   git commit -m "Adopt python-anything template"
+   ```
+
+After this, `.copier-answers.yml` enables `copier update --trust` for future template updates.
+
 ### Update an existing project
 
 ```bash
