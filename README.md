@@ -56,7 +56,9 @@ copier copy --trust gh:ulgens/python-anything ./my-project
 ```bash
 cd my-project
 prek install
+git remote add origin git@github.com:<username>/<project-name>.git
 git commit -m "Initial commit"
+git push -u origin main
 ```
 
 ### Update an existing project
