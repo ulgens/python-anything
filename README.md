@@ -54,8 +54,8 @@ copier copy --trust gh:ulgens/python-anything ./my-project
 
 ```bash
 cd my-project
-git init && git add . && git commit -m "Initial commit"
 prek install
+git commit -m "Initial commit"
 ```
 
 ### Update an existing project
