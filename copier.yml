@@ -19,8 +19,10 @@ _message_after_copy: |
   2. Install git hooks (requires prek: https://prek.j178.dev/installation/):
      $ prek install
 
-  3. Make the initial commit:
+  3. Add a remote and make the initial commit:
+     $ git remote add origin git@github.com:{{ github_username }}/{{ project_name }}.git
      $ git commit -m "Initial commit"
+     $ git push -u origin main
 
   {%- if use_codecov %}
 
