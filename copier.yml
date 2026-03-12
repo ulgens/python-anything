@@ -39,7 +39,8 @@ _message_after_update: |
 
 project_name:
   type: str
-  help: "Project name (e.g., my-awesome-project)"
+  help: "Project name"
+  default: "my-awesome-project"
 
 package_name:
   type: str
@@ -54,14 +55,17 @@ project_description:
 author_name:
   type: str
   help: "Author name"
+  default: "Jane Doe"
 
 author_email:
   type: str
   help: "Author email"
+  default: "janedoe@example.com"
 
 github_username:
   type: str
   help: "GitHub username or organization"
+  default: "janedoe"
 
 python_version:
   type: str
