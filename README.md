@@ -48,7 +48,7 @@ copier copy --trust gh:ulgens/python-anything ./my-project
 | `python_version` | Python minor version | `3.14` |
 | `license` | License type | `MIT` (MIT, Apache-2.0, GPL-3.0, None) |
 | `frameworks` | Frameworks & libraries | `[]` (Click, FastAPI, LangChain) |
-| `use_codecov` | Enable Codecov integration | `false` |
+| `use_codecov` | Enable Codecov integration | `true` |
 | `use_ty` | Enable ty type checker | `false` |
 
 ### After generation
