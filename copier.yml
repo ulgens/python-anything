@@ -82,6 +82,7 @@ license:
   help: "License"
   choices:
     - "MIT"
+    - "BSD-3-Clause"
     - "Apache-2.0"
     - "GPL-3.0"
     - "None"
