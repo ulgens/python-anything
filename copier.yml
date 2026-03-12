@@ -9,7 +9,7 @@ _tasks:
   # TODO:
   #   Check for Windows
   #   https://github.com/ulgens/python-anything/pull/8#discussion_r2923211547
-  - "git init && git add . && prek run --all-files ; git add ."
+  - "git init -b main && git add . && prek run --all-files ; git add ."
 
 _message_after_copy: |
   Your project "{{ project_name }}" has been created successfully!
