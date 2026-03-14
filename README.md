@@ -19,7 +19,7 @@ A [Copier](https://copier.readthedocs.io/) template for Python projects with opi
 - **[ruff](https://github.com/astral-sh/ruff)**: Linting and formatting
 - **[ty](https://github.com/astral-sh/ty)**: Type checking (optional)
 - **[Renovate](https://github.com/renovatebot/renovate)**: Automated dependency updates
-- **[pytest](https://docs.pytest.org/)** + **[pytest-xdist](https://github.com/pytest-dev/pytest-xdist)**: Python testing
+- **[pytest](https://docs.pytest.org/)** + **[pytest-xdist](https://github.com/pytest-dev/pytest-xdist)** + **[pytest-randomly](https://github.com/pytest-dev/pytest-randomly)**: Python testing
 - **[Codecov](https://about.codecov.io/)**: Test coverage reporting (optional)
 
 ## Requirements
