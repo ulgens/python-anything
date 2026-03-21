@@ -42,7 +42,7 @@ jobs:
       - name: Generate project with defaults
         run: |
           copier copy --trust --defaults \
-            --data project_name=test-project \
+            --data project_name="Test Project" \
             --data author_name="Test Author" \
             --data author_email="test@example.com" \
             --data github_username=test-user \
