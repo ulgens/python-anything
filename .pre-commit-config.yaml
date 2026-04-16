@@ -17,7 +17,7 @@ repos:
       - id: yamlfmt
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.37.0
+    rev: 0.37.1
     hooks:
       # TODO:
       #   Consider migrating to actionlint
@@ -42,7 +42,7 @@ repos:
           - pyjson5==2.0.0
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.23.1
+    rev: v1.24.1
     hooks:
       - id: zizmor
         args: ["--no-progress", "--persona=auditor"]
