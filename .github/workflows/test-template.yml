@@ -14,8 +14,6 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # renovate: datasource=pypi depName=copier
-  COPIER_VERSION: 9.15.0
   # renovate: datasource=python-version depName=python
   PYTHON_VERSION: 3.14.4
   # renovate: datasource=pypi depName=uv
@@ -39,11 +37,12 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
           version: ${{ env.UV_VERSION }}
 
-      - name: Install Copier
-        run: uv tool install copier==${{ env.COPIER_VERSION }}
+      - name: Install the dependencies
+        run: uv sync --group ci
 
       - name: Generate project with defaults
         run: |
+          uv run \
           copier copy --trust --defaults \
             --data project_name="Test Project" \
             --data author_name="Test Author" \

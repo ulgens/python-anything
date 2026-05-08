@@ -1,0 +1,32 @@
+[project]
+name = "python-anything"
+version = "0.1.0"
+description = "Python project starter with a modern setup"
+license = "MIT"
+authors = [
+    { name = "Ülgen Sarıkavak", email = "foss@ulgenwanders.net" },
+]
+requires-python = "==3.14.*"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.14",
+]
+
+[dependency-groups]
+ci = [
+    "copier==9.15.0",
+]
+
+[tool.uv]
+# The earliest version that supports the current lock file revision
+required-version = ">=0.8.4"
+package = false
+
+[tool.pyproject-fmt]
+indent = 4
+keep_full_version = true
