@@ -35,6 +35,7 @@ jobs:
       - name: Install uv ${{ env.UV_VERSION }}
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b  # v8.1.0
         with:
+          cache-python: true
           python-version: ${{ env.PYTHON_VERSION }}
           version: ${{ env.UV_VERSION }}
 
