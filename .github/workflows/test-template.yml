@@ -16,7 +16,7 @@ concurrency:
 env:
   # TODO: How to define a matrix without losing renovate support for the versions?
   # renovate: datasource=python-version depName=python
-  PYTHON_VERSION: 3.14.4
+  PYTHON_VERSION: 3.14.5
   # renovate: datasource=pypi depName=uv
   UV_VERSION: 0.11.11
 
