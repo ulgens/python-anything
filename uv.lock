@@ -242,14 +242,14 @@ version = "0.1.0"
 source = { virtual = "." }
 
 [package.dev-dependencies]
-ci = [
+dev = [
     { name = "copier" },
 ]
 
 [package.metadata]
 
 [package.metadata.requires-dev]
-ci = [{ name = "copier", specifier = "==9.15.2" }]
+dev = [{ name = "copier", specifier = "==9.15.2" }]
 
 [[package]]
 name = "pywin32"

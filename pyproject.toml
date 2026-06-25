@@ -18,7 +18,7 @@ classifiers = [
 ]
 
 [dependency-groups]
-ci = [
+dev = [
     "copier==9.15.2",
 ]
 

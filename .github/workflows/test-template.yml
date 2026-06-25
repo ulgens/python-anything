@@ -39,7 +39,7 @@ jobs:
           version: ${{ env.UV_VERSION }}
 
       - name: Install the dependencies
-        run: uv sync --group ci
+        run: uv sync
 
       - name: Generate project with defaults
         run: |
