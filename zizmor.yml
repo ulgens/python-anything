@@ -2,4 +2,4 @@ rules:
   template-injection:
     ignore:
       # These values are not user-controlled and can be considered safe.
-      - test-template.yml:43:42
+      - test-application.yml:43:42
