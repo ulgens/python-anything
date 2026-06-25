@@ -1,4 +1,4 @@
-name: "Test Template"
+name: "Test application generation"
 
 on:
   workflow_dispatch:
@@ -21,8 +21,8 @@ env:
   UV_VERSION: 0.11.24
 
 jobs:
-  generate-project:
-    name: Generate & validate project
+  generate-application:
+    name: Generate & validate application
     runs-on: ubuntu-24.04
     timeout-minutes: 5
 
@@ -41,7 +41,7 @@ jobs:
       - name: Install the dependencies
         run: uv sync
 
-      - name: Generate project with defaults
+      - name: Generate an application with defaults
         run: |
           uv run \
           copier copy --trust --defaults \
