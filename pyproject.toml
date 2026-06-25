@@ -19,7 +19,7 @@ classifiers = [
 
 [dependency-groups]
 dev = [
-    "copier==9.15.2",
+    "copier==9.16.0",
 ]
 
 [tool.uv]
