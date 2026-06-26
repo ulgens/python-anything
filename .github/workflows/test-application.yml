@@ -49,6 +49,7 @@ jobs:
             --data author_name="Test Author" \
             --data author_email="test@example.com" \
             --data github_username=test-user \
+            --data project_type=Application \
             . /tmp/test-project
 
       - name: Verify generated project structure

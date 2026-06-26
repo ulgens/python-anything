@@ -6,10 +6,16 @@ readme = "README.md"
 authors = [
     { name = "{{ author_name }}", email = "{{ author_email }}" },
 ]
+{% if project_type == "Application" -%}
 requires-python = "=={{ python_version }}.*"
+{%- endif %}
 classifiers = [
     "Programming Language :: Python :: 3 :: Only",
+    {% if project_type == "Application" -%}
+    {# TODO: python_version should be stripped from the patch detail #}
+    {# TODO: Check why pyproject-fmt doesn't fix the indentation error in the result #}
     "Programming Language :: Python :: {{ python_version }}",
+    {%- endif %}
 ]
 
 {%- if not frameworks %}
@@ -52,7 +58,9 @@ pytest = [
 [tool.uv]
 # The earliest version that supports the current lock file revision
 required-version = ">=0.8.4"
+{% if project_type == "Application" -%}
 package = false
+{%- endif %}
 
 [tool.pyproject-fmt]
 indent = 4

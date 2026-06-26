@@ -16,10 +16,12 @@ repos:
     hooks:
       - id: pyproject-fmt
 
+  {% if project_type == "Application" -%}
   - repo: https://github.com/astral-sh/uv-pre-commit
     rev: 0.11.24
     hooks:
       - id: uv-lock
+  {%- endif %}
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.15.20

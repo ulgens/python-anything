@@ -5,7 +5,7 @@ _exclude:
   - "{% if license == 'None' %}LICENSE{% endif %}"
 
 _tasks:
-  - "uv lock"
+  - "{% if project_type == 'Application' %}uv lock{% endif %}"
   # TODO:
   #   Check for Windows
   #   https://github.com/ulgens/python-anything/pull/8#discussion_r2923211547
@@ -72,11 +72,19 @@ github_username:
   help: "GitHub username or organization"
   default: "janedoe"
 
+project_type:
+  type: str
+  help: "Project type"
+  choices:
+    - "Application"
+  default: "Application"
+
 python_version:
   type: str
   help: "Python version"
   # TODO: Enable Renovate for the following line
   default: "3.14.6"
+  when: "{{ project_type == 'Application' }}"
 
 license:
   type: str
@@ -98,6 +106,7 @@ frameworks:
     - "FastAPI"
     - "LangChain"
   default: []
+  when: "{{ project_type == 'Application' }}"
 
 use_codecov:
   type: bool
