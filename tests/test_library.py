@@ -12,14 +12,14 @@ def test_common_structure(generated_lib: dict) -> None:
         "ruff.toml",
     )
     for f in expected_files:
-        assert (path / f).is_file()
+        assert (path / f).is_file(), f"{f} is missing."
 
     expected_dirs = (
         "src",
         ".github/workflows",
     )
     for d in expected_dirs:
-        assert (path / d).is_dir()
+        assert (path / d).is_dir(), f"{d} is missing."
 
 
 def test_library_specific_files(generated_lib: dict) -> None:
@@ -34,4 +34,4 @@ def test_library_specific_files(generated_lib: dict) -> None:
     )
 
     for f in expected_files:
-        assert (path / f).is_file()
+        assert (path / f).is_file(), f"{f} is missing."

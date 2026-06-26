@@ -15,14 +15,14 @@ def test_common_structure(generated_app: dict) -> None:
         "ruff.toml",
     )
     for f in expected_files:
-        assert (path / f).is_file()
+        assert (path / f).is_file(), f"{f} is missing."
 
     expected_dirs = (
         "src",
         ".github/workflows",
     )
     for d in expected_dirs:
-        assert (path / d).is_dir()
+        assert (path / d).is_dir(), f"{d} is missing."
 
 
 def test_pyproject_toml_lockable(generated_app: dict) -> None:
@@ -65,4 +65,4 @@ def test_application_no_cross_type_files(generated_app: dict) -> None:
     )
 
     for f in unexpected_files:
-        assert not (path / f).exists()
+        assert not (path / f).exists(), f"{f} is missing."
