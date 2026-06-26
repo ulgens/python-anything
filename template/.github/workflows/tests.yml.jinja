@@ -24,7 +24,7 @@ env:
 
 jobs:
   run-tests:
-    name: pytest -n auto
+    name: pytest
     runs-on: ubuntu-24.04
     timeout-minutes: 1
 
@@ -56,7 +56,7 @@ jobs:
       - name: Run tests with coverage
         working-directory: ./src
         run: |
-          uv run coverage run -m pytest -n auto
+          uv run coverage run -m pytest
           uv run coverage report
           uv run coverage xml
 
@@ -69,5 +69,5 @@ jobs:
 
       - name: Run tests
         working-directory: ./src
-        run: uv run pytest -n auto
+        run: uv run pytest
 {%- endif %}
