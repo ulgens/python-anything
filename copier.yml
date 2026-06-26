@@ -75,7 +75,8 @@ github_username:
 python_version:
   type: str
   help: "Python version"
-  default: "3.14"
+  # TODO: Enable Renovate for the following line
+  default: "3.14.6"
 
 license:
   type: str
