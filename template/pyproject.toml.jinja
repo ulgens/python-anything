@@ -12,9 +12,8 @@ requires-python = "=={{ python_version }}.*"
 classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     {% if project_type == "Application" -%}
-    {# TODO: python_version should be stripped from the patch detail #}
-    {# TODO: Check why pyproject-fmt doesn't fix the indentation error in the result #}
-    "Programming Language :: Python :: {{ python_version }}",
+    {# TODO: Don't assume the input always have the patch -#}
+    "Programming Language :: Python :: {{ python_version.rsplit('.', 1)[0] }}",
     {%- endif %}
 ]
 
