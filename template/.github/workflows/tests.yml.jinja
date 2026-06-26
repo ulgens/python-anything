@@ -50,24 +50,20 @@ jobs:
       - name: Type check
         run: uv run ty check .
       {%- endif %}
-      {%- if use_codecov %}
-      {% raw %}
-
-      - name: Run tests with coverage
-        working-directory: ./src
-        run: |
-          uv run coverage run -m pytest
-          uv run coverage report
-          uv run coverage xml
-
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de  # v5.5.2
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-      {%- endraw %}
-      {%- else %}
 
       - name: Run tests
         working-directory: ./src
-        run: uv run pytest
+        run: |
+          {%- if use_codecov %}
+          uv run coverage run -m pytest
+          uv run coverage report
+          uv run coverage xml
+          {% else %}
+          uv run pytest
+          {%- endif %}
+      {%- if use_codecov %}
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de  # v5.5.2
+        with:
+          {% raw %}token: ${{ secrets.CODECOV_TOKEN }}{% endraw %}
       {%- endif %}
