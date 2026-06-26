@@ -44,14 +44,14 @@ jobs:
       {% endraw %}
       - name: Install Python dependencies
         run: uv sync --group dev
-{%- if use_ty %}
+      {%- if use_ty %}
 
         # TODO: Use the git hook when there is one: https://github.com/astral-sh/ty/issues/269
       - name: Type check
         run: uv run ty check .
-{%- endif %}
-{%- if use_codecov %}
-{% raw %}
+      {%- endif %}
+      {%- if use_codecov %}
+      {% raw %}
 
       - name: Run tests with coverage
         working-directory: ./src
@@ -64,10 +64,10 @@ jobs:
         uses: codecov/codecov-action@671740ac38dd9b0130fbe1cec585b89eea48d3de  # v5.5.2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-{%- endraw %}
-{%- else %}
+      {%- endraw %}
+      {%- else %}
 
       - name: Run tests
         working-directory: ./src
         run: uv run pytest
-{%- endif %}
+      {%- endif %}
