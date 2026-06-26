@@ -74,7 +74,7 @@ github_username:
 
 python_version:
   type: str
-  help: "Python minor version"
+  help: "Python version"
   default: "3.14"
 
 license:
