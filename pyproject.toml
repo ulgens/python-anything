@@ -20,6 +20,8 @@ classifiers = [
 [dependency-groups]
 dev = [
     "copier==9.16.0",
+    "ipdb==0.13.13",
+    "ipython==9.15.0",
 ]
 
 [tool.uv]
