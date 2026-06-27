@@ -8,11 +8,19 @@ authors = [
 ]
 {% if project_type == "Application" %}
 requires-python = "=={{ python_version }}"
+{% elif project_type == "Library" %}
+requires-python = ">={{ min_python_version }},<{{ max_python_version }}"
 {% endif %}
 classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     {% if project_type == "Application" %}
     "Programming Language :: Python :: {{ python_version_minor }}",
+    {% elif project_type == "Library" %}
+    {% set min_ver = min_python_version.split('.')[-1] | int %}
+    {% set max_ver = max_python_version.split('.')[-1] | int %}
+    {% for i in range(min_ver, max_ver) %}
+    "Programming Language :: Python :: 3.{{ i }}",
+    {% endfor %}
     {% endif %}
 ]
 
