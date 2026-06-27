@@ -20,6 +20,16 @@ _tasks:
   - "git init -b main && git add . && prek run --all-files ; git add ."
 
 _message_after_copy: |
+  {% if project_type == "Library" %}
+  ==========================================================
+  # Warning
+
+  This tool doesn't fully support library generation yet.
+  What has been generated will not work as a proper library.
+  The feature's progress can be tracked at
+  https://github.com/ulgens/python-anything/issues/48
+  ==========================================================
+  {% endif %}
   Your project "{{ project_name }}" has been created successfully!
 
   Next steps:
@@ -85,6 +95,7 @@ project_type:
   help: "Project type"
   choices:
     - "Application"
+    - "Library"
   default: "Application"
 
 python_version:
