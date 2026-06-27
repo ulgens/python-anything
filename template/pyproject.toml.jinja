@@ -61,6 +61,6 @@ pytest = [
 [tool.uv]
 # The earliest version that supports the current lock file revision
 required-version = ">=0.8.4"
-{% if project_type == "Application" %}
+{% if project_type != "Library" %}
 package = false
 {% endif %}
