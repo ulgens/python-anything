@@ -396,19 +396,21 @@ wheels = [
 name = "python-anything"
 version = "0.1.0"
 source = { virtual = "." }
+dependencies = [
+    { name = "copier" },
+]
 
 [package.dev-dependencies]
 dev = [
-    { name = "copier" },
     { name = "ipdb" },
     { name = "ipython" },
 ]
 
 [package.metadata]
+requires-dist = [{ name = "copier", specifier = "==9.16.0" }]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "copier", specifier = "==9.16.0" },
     { name = "ipdb", specifier = "==0.13.13" },
     { name = "ipython", specifier = "==9.15.0" },
 ]

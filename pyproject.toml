@@ -16,10 +16,12 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.14",
 ]
+dependencies = [
+    "copier==9.16.0",
+]
 
 [dependency-groups]
 dev = [
-    "copier==9.16.0",
     "ipdb==0.13.13",
     "ipython==9.15.0",
 ]
