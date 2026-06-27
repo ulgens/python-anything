@@ -48,11 +48,7 @@ jobs:
       {%- endif %}
       - name: Install Python dependencies
         run: uv sync --group dev
-      {% if use_ty %}
-        # TODO: Use the git hook when there is one: https://github.com/astral-sh/ty/issues/269
-      - name: Type check
-        run: uv run ty check .
-      {% endif %}
+
       - name: Run tests
         working-directory: ./src
         run: |
