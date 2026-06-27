@@ -7,7 +7,7 @@ authors = [
     { name = "{{ author_name }}", email = "{{ author_email }}" },
 ]
 {% if project_type == "Application" -%}
-requires-python = "=={{ python_version }}.*"
+requires-python = "=={{ python_version }}"
 {%- endif %}
 classifiers = [
     "Programming Language :: Python :: 3 :: Only",
