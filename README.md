@@ -38,18 +38,18 @@ copier copy --trust gh:ulgens/python-anything ./my-project
 
 ### Template questions
 
-| Question | Description | Default |
-|---|---|---|
-| `project_name` | Project name (e.g., `my-awesome-project`) | `my-awesome-project` |
-| `project_description` | One-line description | `""` |
-| `author_name` | Author full name | `Jane Doe` |
-| `author_email` | Author email | `janedoe@example.com` |
-| `github_username` | GitHub username or organization | `janedoe` |
-| `python_version` | Python minor version | `3.14` |
-| `license` | License type | `MIT` (MIT, BSD-3-Clause, Apache-2.0, GPL-3.0, None) |
-| `frameworks` | Frameworks & libraries | `[]` (Click, FastAPI, LangChain) |
-| `use_codecov` | Enable Codecov integration | `true` |
-| `use_ty` | Enable ty type checker | `false` |
+| Question              | Description                               | Default                                              |
+|-----------------------|-------------------------------------------|------------------------------------------------------|
+| `project_name`        | Project name (e.g., `my-awesome-project`) | `my-awesome-project`                                 |
+| `project_description` | One-line description                      | `""`                                                 |
+| `author_name`         | Author full name                          | `Jane Doe`                                           |
+| `author_email`        | Author email                              | `janedoe@example.com`                                |
+| `github_username`     | GitHub username or organization           | `janedoe`                                            |
+| `python_version`      | Python minor version                      | `3.14`                                               |
+| `license`             | License type                              | `MIT` (MIT, BSD-3-Clause, Apache-2.0, GPL-3.0, None) |
+| `frameworks`          | Frameworks & libraries                    | `[]` (Click, FastAPI, LangChain)                     |
+| `use_codecov`         | Enable Codecov integration                | `true`                                               |
+| `use_ty`              | Enable ty type checker                    | `false`                                              |
 
 ### After generation
 
