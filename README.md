@@ -45,7 +45,7 @@ copier copy --trust gh:ulgens/python-anything ./my-project
 | `author_name`         | Author full name                          | `Jane Doe`                                           |
 | `author_email`        | Author email                              | `janedoe@example.com`                                |
 | `github_username`     | GitHub username or organization           | `janedoe`                                            |
-| `python_version`      | Python minor version                      | `3.14`                                               |
+| `python_version`      | Python version                            | `3.14`                                               |
 | `license`             | License type                              | `MIT` (MIT, BSD-3-Clause, Apache-2.0, GPL-3.0, None) |
 | `frameworks`          | Frameworks & libraries                    | `[]` (Click, FastAPI, LangChain)                     |
 | `use_codecov`         | Enable Codecov integration                | `true`                                               |
