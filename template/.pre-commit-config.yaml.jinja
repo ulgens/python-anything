@@ -23,6 +23,13 @@ repos:
       - id: uv-lock
   {%- endif %}
 
+  {% if use_ty -%}
+  - repo: https://github.com/astral-sh/ty-pre-commit
+    rev: v0.0.55
+    hooks:
+      - id: ty
+  {% endif %}
+
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.15.20
     hooks:
