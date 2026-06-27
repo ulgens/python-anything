@@ -5,6 +5,10 @@ _jinja_extensions:
   - copier_template_extensions.TemplateExtensionLoader
   - extensions/python_versions.py:PythonVersionsExtension
 
+_envops:
+  trim_blocks: true
+  lstrip_blocks: true
+
 _exclude:
   - "{% if license == 'None' %}LICENSE{% endif %}"
 
