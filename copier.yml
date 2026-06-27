@@ -110,6 +110,26 @@ python_version_minor:
   default: "{{ python_version.rsplit('.', 1)[0] }}"
   when: false
 
+min_python_version:
+  type: str
+  help: "Minimum supported Python version"
+  choices:
+    - "3.10"
+    - "3.11"
+    - "3.12"
+    - "3.13"
+    - "3.14"
+    - "3.15"
+  default: "3.12"
+  when: "{{ project_type == 'Library' }}"
+
+max_python_version:
+  type: str
+  help: "Maximum supported Python version (exclusive)"
+  choices: "{{ ['3.11','3.12','3.13','3.14','3.15','3.16'] | select('gt', min_python_version) | list }}"
+  default: "3.15"
+  when: "{{ project_type == 'Library' }}"
+
 license:
   type: str
   help: "License"
