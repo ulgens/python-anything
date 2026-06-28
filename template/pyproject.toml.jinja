@@ -7,16 +7,12 @@ authors = [
     { name = "{{ author_name }}", email = "{{ author_email }}" },
 ]
 {% if project_type == "Application" %}
-requires-python = "=={{ python_version }}.*"
+requires-python = "=={{ python_version }}"
 {% endif %}
 classifiers = [
     "Programming Language :: Python :: 3 :: Only",
-    {% if project_type == "Application" -%}
-    "Programming Language :: Python :: {{ python_version_minor }}",
-    {%- endif %}
     {% if project_type == "Application" %}
-    {# TODO: Don't assume the input always have the patch #}
-    "Programming Language :: Python :: {{ python_version.rsplit('.', 1)[0] }}",
+    "Programming Language :: Python :: {{ python_version_minor }}",
     {% endif %}
 ]
 
