@@ -65,3 +65,7 @@ jobs:
       - name: Verify uv lock is valid
         working-directory: /tmp/test-project
         run: uv lock --check
+
+      - name: Verify no cross-type files exist
+        run: |
+          test ! -f /tmp/test-project/CHANGELOG.md
