@@ -18,6 +18,7 @@ env:
   PYTHON_VERSION: 3.14.6
   # renovate: datasource=pypi depName=uv
   UV_VERSION: 0.11.24
+  OUTPUT_PATH: /tmp/test-library
 
 jobs:
   generate-library:
@@ -49,18 +50,20 @@ jobs:
             --data author_email="test@example.com" \
             --data github_username=test-user \
             --data project_type=Library \
-            . /tmp/test-project
+            . $OUTPUT_PATH
 
       - name: Verify generated project structure
+        working-directory: ${{ env.OUTPUT_PATH }}
         run: |
-          test -f /tmp/test-project/pyproject.toml
-          test -f /tmp/test-project/.pre-commit-config.yaml
-          test -f /tmp/test-project/.gitignore
-          test -f /tmp/test-project/renovate.json5
-          test -f /tmp/test-project/ruff.toml
-          test -d /tmp/test-project/src
-          test -d /tmp/test-project/.github/workflows
+          test -f pyproject.toml
+          test -f .pre-commit-config.yaml
+          test -f .gitignore
+          test -f renovate.json5
+          test -f ruff.toml
+          test -d src
+          test -d .github/workflows
 
       - name: Verify library-specific files exist
+        working-directory: ${{ env.OUTPUT_PATH }}
         run: |
-          test -f /tmp/test-project/CHANGELOG.md
+          test -f CHANGELOG.md
