@@ -1,6 +1,10 @@
 _subdirectory: template
 _min_copier_version: "9.0.0"
 
+_jinja_extensions:
+  - copier_template_extensions.TemplateExtensionLoader
+  - extensions/python_versions.py:PythonVersionsExtension
+
 _exclude:
   - "{% if license == 'None' %}LICENSE{% endif %}"
 
@@ -81,14 +85,13 @@ project_type:
 
 python_version:
   type: str
-  help: "Python version"
-  # TODO: Enable Renovate for the following line
-  default: "3.14.6"
+  help: "Python version (X.Y.Z)"
+  default: "{{ latest_python_version }}"
   when: "{{ project_type == 'Application' }}"
+  validator: "{{ validate_python_version(python_version) }}"
 
 python_version_minor:
   type: str
-  # TODO: Don't assume the input always have the patch
   default: "{{ python_version.rsplit('.', 1)[0] }}"
   when: false
 
