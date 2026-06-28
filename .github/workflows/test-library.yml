@@ -60,3 +60,7 @@ jobs:
           test -f /tmp/test-project/ruff.toml
           test -d /tmp/test-project/src
           test -d /tmp/test-project/.github/workflows
+
+      - name: Verify library-specific files exist
+        run: |
+          test -f /tmp/test-project/CHANGELOG.md

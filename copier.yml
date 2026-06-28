@@ -11,6 +11,7 @@ _envops:
 
 _exclude:
   - "{% if license == 'None' %}LICENSE{% endif %}"
+  - "{% if project_type != 'Library' %}CHANGELOG.md{% endif %}"
 
 _tasks:
   - "{% if project_type == 'Application' %}uv lock{% endif %}"
