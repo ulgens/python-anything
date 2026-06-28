@@ -1,0 +1,62 @@
+name: "Test library generation"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request: ~
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  # renovate: datasource=python-version depName=python
+  PYTHON_VERSION: 3.14.6
+  # renovate: datasource=pypi depName=uv
+  UV_VERSION: 0.11.24
+
+jobs:
+  generate-library:
+    name: Generate & validate library
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+        with:
+          persist-credentials: false
+
+      - name: Install uv ${{ env.UV_VERSION }}
+        uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39  # v8.2.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          version: ${{ env.UV_VERSION }}
+
+      - name: Install the dependencies
+        run: uv sync
+
+      - name: Generate a library with defaults
+        run: |
+          uv run \
+          copier copy --trust --defaults \
+            --data project_name="Test Project" \
+            --data author_name="Test Author" \
+            --data author_email="test@example.com" \
+            --data github_username=test-user \
+            --data project_type=Library \
+            . /tmp/test-project
+
+      - name: Verify generated project structure
+        run: |
+          test -f /tmp/test-project/pyproject.toml
+          test -f /tmp/test-project/.pre-commit-config.yaml
+          test -f /tmp/test-project/.gitignore
+          test -f /tmp/test-project/renovate.json5
+          test -f /tmp/test-project/ruff.toml
+          test -d /tmp/test-project/src
+          test -d /tmp/test-project/.github/workflows
