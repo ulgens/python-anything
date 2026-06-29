@@ -6,6 +6,8 @@
 
 {% if project_type == "Application" %}
 [![Python](https://img.shields.io/badge/python-{{ python_version }}-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+{% elif project_type == "Library" %}
+[![Python](https://img.shields.io/badge/python->={{ min_python_version }},<{{ max_python_version }}-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 {% endif %}
 [![uv](https://img.shields.io/badge/-uv-DE5FE9?logo=uv&labelColor=555)](https://github.com/astral-sh/uv)
 [![prek](https://img.shields.io/badge/-prek-F54327?logo=prek&labelColor=555)](https://github.com/j178/prek)
