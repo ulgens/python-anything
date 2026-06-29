@@ -47,14 +47,14 @@ _message_after_copy: |
      $ git commit -m "Initial commit"
      $ git push -u origin main
 
-  {%- if use_codecov %}
+  {% if use_codecov %}
 
   4. Set up Codecov:
      - Sign up at https://about.codecov.io/ and add your repository.
      - Copy the upload token from Codecov's repository settings.
      - Add the token as a GitHub Actions secret named CODECOV_TOKEN
        in your repository settings (Settings > Secrets and variables > Actions).
-  {%- endif %}
+  {% endif %}
 
 _message_after_update: |
   Your project "{{ project_name }}" has been updated successfully!

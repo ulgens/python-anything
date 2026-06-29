@@ -36,10 +36,10 @@ select = [
     # https://docs.astral.sh/ruff/rules/#pyflakes-f
     # https://github.com/PyCQA/pyflakes
     "F",
-{%- if "FastAPI" in frameworks %}
+{% if "FastAPI" in frameworks %}
     # https://docs.astral.sh/ruff/rules/#fastapi-fast
     "FAST",
-{%- endif %}
+{% endif %}
     # https://docs.astral.sh/ruff/rules/#refurb-furb
     # https://github.com/dosisod/refurb
     "FURB",
