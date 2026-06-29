@@ -30,7 +30,7 @@ jobs:
     name: pytest
     runs-on: ubuntu-24.04
     timeout-minutes: 5
-    {%- if project_type == "Library" %}
+    {% if project_type == "Library" %}
     strategy:
       fail-fast: false
       matrix:
