@@ -67,3 +67,4 @@ jobs:
         working-directory: ${{ env.OUTPUT_PATH }}
         run: |
           test -f CHANGELOG.md
+          test -f .github/workflows/release.yml
