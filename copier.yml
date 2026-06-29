@@ -11,6 +11,7 @@ _envops:
 
 _exclude:
   - "{% if license == 'None' %}LICENSE{% endif %}"
+  - "{% if project_type != 'Library' %}.github/workflows/release.yml{% endif %}"
   - "{% if project_type != 'Library' %}CHANGELOG.md{% endif %}"
 
 _tasks:
