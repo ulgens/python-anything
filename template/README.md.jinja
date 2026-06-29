@@ -26,6 +26,27 @@
 
 {{ project_description }}
 
+{% if project_type == "Library" %}
+## Installation
+
+```bash
+pip install {{ package_name }}
+```
+
+Or with [uv](https://docs.astral.sh/uv/):
+
+```bash
+uv pip install {{ package_name }}
+```
+
+## Usage
+
+```python
+from {{ package_name }} import __version__
+
+print(__version__)
+```
+{% endif %}
 {% if project_type == "Application" %}
 ## Required tools
 - [Copier](https://copier.readthedocs.io/) >= 9.0.0
