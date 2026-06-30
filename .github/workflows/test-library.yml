@@ -21,8 +21,8 @@ env:
   OUTPUT_PATH: /tmp/test-library
 
 jobs:
-  generate-library:
-    name: Generate & validate library
+  run-tests:
+    name: pytest
     runs-on: ubuntu-24.04
     timeout-minutes: 10
 
@@ -41,30 +41,5 @@ jobs:
       - name: Install the dependencies
         run: uv sync
 
-      - name: Generate a library with defaults
-        run: |
-          uv run \
-          copier copy --trust --defaults \
-            --data project_name="Test Project" \
-            --data author_name="Test Author" \
-            --data author_email="test@example.com" \
-            --data github_username=test-user \
-            --data project_type=Library \
-            . $OUTPUT_PATH
-
-      - name: Verify generated project structure
-        working-directory: ${{ env.OUTPUT_PATH }}
-        run: |
-          test -f pyproject.toml
-          test -f .pre-commit-config.yaml
-          test -f .gitignore
-          test -f renovate.json5
-          test -f ruff.toml
-          test -d src
-          test -d .github/workflows
-
-      - name: Verify library-specific files exist
-        working-directory: ${{ env.OUTPUT_PATH }}
-        run: |
-          test -f CHANGELOG.md
-          test -f .github/workflows/release.yml
+      - name: Run tests
+        run: uv run pytest tests/test_library.py
