@@ -72,7 +72,7 @@ jobs:
       {% endraw %}
       {% endif %}
       - name: Install Python dependencies
-        run: uv sync --group dev
+        run: uv sync
 
       - name: Run tests
         working-directory: ./src
