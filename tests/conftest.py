@@ -29,7 +29,11 @@ def generated_app(tmp_path: Path) -> dict:
         defaults=True,
         unsafe=True,
     )
-    return {"path": tmp_path, "inputs": inputs}
+
+    return {
+        "path": tmp_path,
+        "inputs": inputs,
+    }
 
 
 @pytest.fixture()
@@ -48,4 +52,8 @@ def generated_lib(tmp_path: Path) -> dict:
         defaults=True,
         unsafe=True,
     )
-    return {"path": tmp_path, "inputs": inputs}
+
+    return {
+        "path": tmp_path,
+        "inputs": inputs,
+    }
