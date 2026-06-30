@@ -85,3 +85,13 @@ def test_library_readme_has_install_section(generated_lib: dict) -> None:
 
     content = (path / "README.md").read_text(encoding="utf-8")
     assert "pip install" in content
+
+
+def test_build_backend_is_hatchling(generated_lib: dict) -> None:
+    path = generated_lib["path"]
+
+    content = (path / "pyproject.toml").read_text(encoding="utf-8")
+
+    assert "[build-system]\n" in content
+    assert 'build-backend = "hatchling.build"\n' in content
+    assert 'requires = [ "hatchling" ]\n' in content

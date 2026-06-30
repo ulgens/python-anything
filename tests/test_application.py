@@ -75,3 +75,11 @@ def test_application_no_cross_type_files(generated_app: dict) -> None:
 
     for f in unexpected_files:
         assert not (path / f).exists(), f"{f} is missing."
+
+def test_no_build_backend(generated_app: dict) -> None:
+    path = generated_app["path"]
+
+    content = (path / "pyproject.toml").read_text(encoding="utf-8")
+
+    assert "[build-system]\n" not in content
+    assert "hatchling" not in content
