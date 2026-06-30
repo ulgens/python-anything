@@ -157,7 +157,7 @@ frameworks:
 use_codecov:
   type: bool
   help: "Enable Codecov integration for test coverage reporting"
-  default: true
+  default: false
 
 use_ty:
   type: bool
