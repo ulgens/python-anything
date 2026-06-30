@@ -1,4 +1,4 @@
-name: "Test library generation"
+name: "Tests"
 
 on:
   workflow_dispatch:
@@ -18,7 +18,6 @@ env:
   PYTHON_VERSION: 3.14.6
   # renovate: datasource=pypi depName=uv
   UV_VERSION: 0.11.24
-  OUTPUT_PATH: /tmp/test-library
 
 jobs:
   run-tests:
@@ -32,9 +31,10 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install uv ${{ env.UV_VERSION }}
+      - name: Install uv ${{ env.UV_VERSION }} & Python ${{ env.PYTHON_VERSION }}
         uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39  # v8.2.0
         with:
+          enable-cache: true
           python-version: ${{ env.PYTHON_VERSION }}
           version: ${{ env.UV_VERSION }}
 
@@ -42,4 +42,4 @@ jobs:
         run: uv sync
 
       - name: Run tests
-        run: uv run pytest tests/test_library.py
+        run: uv run pytest
