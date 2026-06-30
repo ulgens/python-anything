@@ -22,8 +22,8 @@ env:
   OUTPUT_PATH: /tmp/test-application
 
 jobs:
-  generate-application:
-    name: Generate & validate application
+  run-tests:
+    name: pytest
     runs-on: ubuntu-24.04
     timeout-minutes: 5
 
@@ -42,34 +42,5 @@ jobs:
       - name: Install the dependencies
         run: uv sync
 
-      - name: Generate an application with defaults
-        run: |
-          uv run \
-          copier copy --trust --defaults \
-            --data project_name="Test Project" \
-            --data author_name="Test Author" \
-            --data author_email="test@example.com" \
-            --data github_username=test-user \
-            --data project_type=Application \
-            . $OUTPUT_PATH
-
-      - name: Verify generated project structure
-        working-directory: ${{ env.OUTPUT_PATH }}
-        run: |
-          test -f pyproject.toml
-          test -f .pre-commit-config.yaml
-          test -f .gitignore
-          test -f renovate.json5
-          test -f ruff.toml
-          test -d src
-          test -d .github/workflows
-
-      - name: Verify uv lock is valid
-        working-directory: ${{ env.OUTPUT_PATH }}
-        run: uv lock --check
-
-      - name: Verify no cross-type files exist
-        working-directory: ${{ env.OUTPUT_PATH }}
-        run: |
-          test ! -f CHANGELOG.md
-          test ! -f .github/workflows/release.yml
+      - name: Run tests
+        run: uv run pytest tests/test_application.py
