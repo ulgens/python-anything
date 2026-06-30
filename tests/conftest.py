@@ -22,7 +22,7 @@ def generated_app(tmp_path: Path) -> dict:
         "github_username": faker.user_name(),
         "project_type": "Application",
     }
-    run_copy(
+    result = run_copy(
         src_path=str(PROJECT_DIR),
         dst_path=str(tmp_path),
         data=inputs,
@@ -33,6 +33,7 @@ def generated_app(tmp_path: Path) -> dict:
     return {
         "path": tmp_path,
         "inputs": inputs,
+        "answers": result.answers.user,
     }
 
 
@@ -45,7 +46,7 @@ def generated_lib(tmp_path: Path) -> dict:
         "github_username": faker.user_name(),
         "project_type": "Library",
     }
-    run_copy(
+    result = run_copy(
         src_path=str(PROJECT_DIR),
         dst_path=str(tmp_path),
         data=inputs,
@@ -56,4 +57,5 @@ def generated_lib(tmp_path: Path) -> dict:
     return {
         "path": tmp_path,
         "inputs": inputs,
+        "answers": result.answers.user,
     }
