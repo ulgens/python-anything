@@ -15,7 +15,7 @@ __all__ = (
 
 @pytest.fixture()
 def generated_app(tmp_path: Path) -> dict:
-    data = {
+    inputs = {
         "project_name": faker.catch_phrase(),
         "author_name": faker.name(),
         "author_email": faker.email(),
@@ -25,16 +25,16 @@ def generated_app(tmp_path: Path) -> dict:
     run_copy(
         src_path=str(PROJECT_DIR),
         dst_path=str(tmp_path),
-        data=data,
+        data=inputs,
         defaults=True,
         unsafe=True,
     )
-    return {"path": tmp_path, "data": data}
+    return {"path": tmp_path, "inputs": inputs}
 
 
 @pytest.fixture()
 def generated_lib(tmp_path: Path) -> dict:
-    data = {
+    inputs = {
         "project_name": faker.catch_phrase(),
         "author_name": faker.name(),
         "author_email": faker.email(),
@@ -44,8 +44,8 @@ def generated_lib(tmp_path: Path) -> dict:
     run_copy(
         src_path=str(PROJECT_DIR),
         dst_path=str(tmp_path),
-        data=data,
+        data=inputs,
         defaults=True,
         unsafe=True,
     )
-    return {"path": tmp_path, "data": data}
+    return {"path": tmp_path, "inputs": inputs}
