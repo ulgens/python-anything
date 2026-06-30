@@ -49,7 +49,6 @@ _message_after_copy: |
      $ git push -u origin main
 
   {% if use_codecov %}
-
   4. Set up Codecov:
      - Sign up at https://about.codecov.io/ and add your repository.
      - Copy the upload token from Codecov's repository settings.
