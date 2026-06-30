@@ -1,3 +1,8 @@
+{% if project_type == "Library" -%}
+from {{ package_name }} import __version__
+{%- endif %}
+
+
 # https://docs.pytest.org/en/stable/#a-quick-example
 def inc(x):
     return x + 1
