@@ -53,6 +53,13 @@ def test_pyproject_toml_locked_properly(generated_app: dict) -> None:
     assert result.returncode == 0, f"uv lock --check failed:\n{result.stderr}"
 
 
+def test_package_flag(generated_app: dict) -> None:
+    path = generated_app["path"]
+
+    content = (path / "pyproject.toml").read_text(encoding="utf-8")
+    assert "package = false" in content
+
+
 def test_application_no_cross_type_files(generated_app: dict) -> None:
     """
     Verify library-only files are not present in the generated application.
