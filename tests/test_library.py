@@ -22,6 +22,13 @@ def test_common_structure(generated_lib: dict) -> None:
         assert (path / d).is_dir(), f"{d} is missing."
 
 
+def test_package_flag(generated_lib: dict) -> None:
+    path = generated_lib["path"]
+
+    content = (path / "pyproject.toml").read_text(encoding="utf-8")
+    assert "package = false" not in content
+
+
 def test_library_specific_files(generated_lib: dict) -> None:
     """
     Verify library-specific files (CHANGELOG, release workflow) are present.
