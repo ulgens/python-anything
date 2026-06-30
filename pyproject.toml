@@ -27,6 +27,13 @@ dev = [
     "copier==9.16.0",
     "ipdb==0.13.13",
     "ipython==9.15.0",
+    { include-group = "test" },
+]
+test = [
+    "faker==40.23.0",
+    "pytest==9.1.1",
+    "pytest-randomly==4.1.0",
+    "pytest-xdist==3.8.0",
 ]
 
 [tool.uv]
