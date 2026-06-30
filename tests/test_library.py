@@ -34,9 +34,11 @@ def test_library_specific_files(generated_lib: dict) -> None:
     Verify library-specific files (CHANGELOG, release workflow) are present.
     """
     path = generated_lib["path"]
+    package_name = generated_lib["answers"]["package_name"]
 
     expected_files = (
         "CHANGELOG.md",
+        f"src/{package_name}/__init__.py",
         ".github/workflows/release.yml",
     )
 
