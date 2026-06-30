@@ -65,10 +65,12 @@ def test_application_no_cross_type_files(generated_app: dict) -> None:
     Verify library-only files are not present in the generated application.
     """
     path = generated_app["path"]
+    package_name = generated_app["answers"]["package_name"]
 
     unexpected_files = (
         "CHANGELOG.md",
         ".github/workflows/release.yml",
+        f"src/{package_name}/__init__.py",
     )
 
     for f in unexpected_files:
