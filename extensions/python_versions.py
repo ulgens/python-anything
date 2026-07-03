@@ -4,7 +4,6 @@ from typing import Any
 import httpx
 from jinja2.ext import Extension
 
-
 __all__ = ("PythonVersionsExtension",)
 
 
@@ -17,7 +16,7 @@ _VERSION_PATTERN = re.compile(r"^\d+\.\d+\.\d+[a-z]*\d*$")
 # FIXME:
 #   Keeping this in an utils file causes
 #   'No module named 'copier_template_extensions.utils''
-class classproperty:
+class classproperty:  # noqa: N801
     """
     Decorator that converts a method with a single cls argument into a property
     that can be accessed directly from the class.
@@ -41,7 +40,10 @@ class PythonVersionsExtension(Extension):
     Jinja2 extension that validates Python versions against official releases.
     """
 
-    _releases = []
+    # TODO:
+    #   Recheck the RUF012 case.
+    #   I'm not happy with the class-focused approach here, something instance based would be nicer.
+    _releases = []  # noqa: RUF012
     _latest_version = ""
 
     def __init__(self, environment: Any) -> None:
@@ -70,14 +72,14 @@ class PythonVersionsExtension(Extension):
                 cls._latest_version = version
 
     @classproperty
-    def releases(cls):
+    def releases(cls):  # noqa: N805
         if not cls._releases:
             cls.update_release_cache()
 
         return cls._releases
 
     @classproperty
-    def latest_version(cls) -> str:
+    def latest_version(cls) -> str:  # noqa: N805
         if not cls._latest_version:
             cls.update_release_cache()
 
