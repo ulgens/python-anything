@@ -74,10 +74,7 @@ def test_library_uv_lock_in_gitignore(generated_lib: dict) -> None:
     path = generated_lib["path"]
 
     content = (path / ".gitignore").read_text(encoding="utf-8")
-    assert any(
-        re.match(r"^uv\.lock$", line)
-        for line in content.splitlines()
-    )
+    assert any(re.match(r"^uv\.lock$", line) for line in content.splitlines())
 
 
 def test_library_readme_has_install_section(generated_lib: dict) -> None:
