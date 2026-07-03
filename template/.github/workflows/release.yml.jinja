@@ -53,5 +53,5 @@ jobs:
         with:
           subject-path: "dist/*"
 
-      - name: Publish to PyPI (with release attestation)
-        run: uv publish --attest
+      - name: Publish to PyPI
+        run: uv publish
