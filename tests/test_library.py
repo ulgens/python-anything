@@ -52,6 +52,21 @@ def test_library_specific_files(generated_lib: dict) -> None:
         assert (path / f).is_file(), f"{f} is missing."
 
 
+def test_library_no_cross_type_files(generated_lib: dict) -> None:
+    """
+    Verify application-only files are not present in the generated library.
+    """
+    path = generated_lib["path"]
+
+    unexpected_files = (
+        "src/main.py",
+        "src/__init__.py",
+    )
+
+    for f in unexpected_files:
+        assert not (path / f).exists(), f"{f} should not be present."
+
+
 def test_library_requires_python_range(generated_lib: dict) -> None:
     path = generated_lib["path"]
     min_ver = generated_lib["answers"]["min_python_version"]
