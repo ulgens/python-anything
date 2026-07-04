@@ -1,0 +1,10 @@
+[pytest]
+addopts = [
+    "-n", "auto",
+]
+testpaths = [
+    "tests",
+]
+filterwarnings = [
+    "ignore::copier._vcs.DirtyLocalWarning",
+]
