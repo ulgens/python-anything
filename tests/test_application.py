@@ -14,6 +14,8 @@ def test_common_structure(generated_app: dict) -> None:
         ".gitignore",
         "renovate.json5",
         "ruff.toml",
+        "src/main.py",
+        "src/__init__.py",
     )
     for f in expected_files:
         assert (path / f).is_file(), f"{f} is missing."
