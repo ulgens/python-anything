@@ -30,7 +30,7 @@ dev = [
     { include-group = "test" },
 ]
 test = [
-    "faker==40.23.0",
+    "faker==40.28.1",
     "pytest==9.1.1",
     "pytest-randomly==4.1.0",
     "pytest-xdist==3.8.0",
