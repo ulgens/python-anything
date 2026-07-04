@@ -8,6 +8,7 @@ def test_common_structure(generated_app: dict) -> None:
     path = generated_app["path"]
 
     expected_files = (
+        ".editorconfig",
         "pyproject.toml",
         ".pre-commit-config.yaml",
         ".gitignore",
