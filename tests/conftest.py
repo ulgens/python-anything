@@ -5,7 +5,6 @@ from copier import run_copy
 from faker import Faker
 
 PROJECT_DIR = Path(__file__).resolve().parent.parent
-faker = Faker()
 
 __all__ = (
     "generated_app",
@@ -13,7 +12,7 @@ __all__ = (
 )
 
 
-def get_common_inputs() -> dict:
+def get_common_inputs(faker: Faker) -> dict:
     return {
         "project_name": faker.catch_phrase(),
         "author_name": faker.name(),
@@ -23,9 +22,9 @@ def get_common_inputs() -> dict:
 
 
 @pytest.fixture()
-def generated_app(tmp_path: Path) -> dict:
+def generated_app(tmp_path: Path, faker: Faker) -> dict:
     inputs = {
-        **get_common_inputs(),
+        **get_common_inputs(faker),
         "project_type": "Application",
     }
 
@@ -45,9 +44,9 @@ def generated_app(tmp_path: Path) -> dict:
 
 
 @pytest.fixture()
-def generated_lib(tmp_path: Path) -> dict:
+def generated_lib(tmp_path: Path, faker: Faker) -> dict:
     inputs = {
-        **get_common_inputs(),
+        **get_common_inputs(faker),
         "project_type": "Library",
     }
     result = run_copy(
