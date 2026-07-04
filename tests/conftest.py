@@ -12,7 +12,8 @@ __all__ = (
 )
 
 
-def get_common_inputs(faker: Faker) -> dict:
+@pytest.fixture()
+def common_inputs(faker: Faker) -> dict:
     return {
         "project_name": faker.catch_phrase(),
         "author_name": faker.name(),
@@ -22,9 +23,9 @@ def get_common_inputs(faker: Faker) -> dict:
 
 
 @pytest.fixture()
-def generated_app(tmp_path: Path, faker: Faker) -> dict:
+def generated_app(tmp_path: Path, common_inputs: dict) -> dict:
     inputs = {
-        **get_common_inputs(faker),
+        **common_inputs,
         "project_type": "Application",
     }
 
@@ -44,9 +45,9 @@ def generated_app(tmp_path: Path, faker: Faker) -> dict:
 
 
 @pytest.fixture()
-def generated_lib(tmp_path: Path, faker: Faker) -> dict:
+def generated_lib(tmp_path: Path, common_inputs: dict) -> dict:
     inputs = {
-        **get_common_inputs(faker),
+        **common_inputs,
         "project_type": "Library",
     }
     result = run_copy(
