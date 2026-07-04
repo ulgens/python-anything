@@ -100,6 +100,18 @@ def test_library_readme_has_install_section(generated_lib: dict) -> None:
     assert "pip install" in content
 
 
+def test_pyproject_toml_urls(generated_lib: dict) -> None:
+    path = generated_lib["path"]
+    github_username = generated_lib["answers"]["github_username"]
+    package_name = generated_lib["answers"]["package_name"]
+
+    content = (path / "pyproject.toml").read_text(encoding="utf-8")
+
+    assert f'Homepage = "https://github.com/{github_username}/{package_name}"' in content
+    assert f'Source = "https://github.com/{github_username}/{package_name}"' in content
+    assert f'Issues = "https://github.com/{github_username}/{package_name}/issues"' in content
+
+
 def test_build_backend_is_hatchling(generated_lib: dict) -> None:
     path = generated_lib["path"]
 

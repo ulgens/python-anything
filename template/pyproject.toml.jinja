@@ -30,6 +30,13 @@ classifiers = [
     {% endif %}
 ]
 
+{% if project_type == "Library" %}
+[project.urls]
+Homepage = "https://github.com/{{ github_username }}/{{ package_name }}"
+Source = "https://github.com/{{ github_username }}/{{ package_name }}"
+Issues = "https://github.com/{{ github_username }}/{{ package_name }}/issues"
+{% endif %}
+
 {% if not frameworks %}
 dependencies = []
 {% else %}
