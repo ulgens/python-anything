@@ -1,5 +1,0 @@
-rules:
-  template-injection:
-    ignore:
-      # These values are not user-controlled and can be considered safe.
-      - test-application.yml:43:42
