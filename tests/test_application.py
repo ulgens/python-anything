@@ -74,7 +74,7 @@ def test_application_no_cross_type_files(generated_app: dict) -> None:
     )
 
     for f in unexpected_files:
-        assert not (path / f).exists(), f"{f} is missing."
+        assert not (path / f).exists(), f"{f} should not be present."
 
 
 def test_no_build_backend(generated_app: dict) -> None:
