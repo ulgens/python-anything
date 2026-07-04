@@ -1,16 +1,14 @@
-import re
 from typing import Any
 
 import httpx
 from jinja2.ext import Extension
+from packaging.version import InvalidVersion, Version
 
 __all__ = ("PythonVersionsExtension",)
 
 
 API_URL = "https://www.python.org/api/v2/downloads/release/"
 TIMEOUT = 10
-
-_VERSION_PATTERN = re.compile(r"^\d+\.\d+\.\d+[a-z]*\d*$")
 
 
 # FIXME:
@@ -87,10 +85,14 @@ class PythonVersionsExtension(Extension):
 
     @classmethod
     def validate(cls, version: str) -> str:
-        if not _VERSION_PATTERN.match(version):
-            return f"Version must be in X.Y.Z format (e.g., {cls.latest_version})"
+        check_existing_text = "Check the existing versions here: https://www.python.org/downloads/"
+
+        try:
+            Version(version)
+        except InvalidVersion:
+            return f"{version} is not a valid version. {check_existing_text}"
 
         if version in cls.releases:
             return ""
 
-        return f"Python {version} is not a known release"
+        return f"{version} is not a known release. {check_existing_text}"
