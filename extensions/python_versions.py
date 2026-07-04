@@ -1,87 +1,34 @@
+import json
+from pathlib import Path
 from typing import Any
 
-import httpx
 from jinja2.ext import Extension
 from packaging.version import InvalidVersion, Version
 
 __all__ = ("PythonVersionsExtension",)
 
 
-API_URL = "https://www.python.org/api/v2/downloads/release/"
-TIMEOUT = 10
-
-
-# FIXME:
-#   Keeping this in an utils file causes
-#   'No module named 'copier_template_extensions.utils''
-class classproperty:  # noqa: N801
-    """
-    Decorator that converts a method with a single cls argument into a property
-    that can be accessed directly from the class.
-
-    Vendored from https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.functional.classproperty
-    """
-
-    def __init__(self, method=None):
-        self.fget = method
-
-    def __get__(self, instance, cls=None):
-        return self.fget(cls)
-
-    def getter(self, method):
-        self.fget = method
-        return self
+python_versions = Path(__file__).resolve().parent / "python_versions.json"
+python_versions = json.loads(python_versions.read_text())
 
 
 class PythonVersionsExtension(Extension):
     """
-    Jinja2 extension that validates Python versions against official releases.
+    Jinja2 extension that validates Python versions against a vendored release list.
     """
 
-    # TODO:
-    #   Recheck the RUF012 case.
-    #   I'm not happy with the class-focused approach here, something instance based would be nicer.
-    _releases = []  # noqa: RUF012
-    _latest_version = ""
+    releases: list[str]
+    latest_version: str
 
     def __init__(self, environment: Any) -> None:
         super().__init__(environment)
-        environment.globals["validate_python_version"] = self.validate
-        environment.globals["latest_python_version"] = self.latest_version
 
-    @classmethod
-    def update_release_cache(cls):
-        response = httpx.get(API_URL, timeout=TIMEOUT)
-        response.raise_for_status()
-        data = response.json()
+        cls = self.__class__
+        cls.releases = python_versions["releases"]
+        cls.latest_version = python_versions["latest_version"]
 
-        for entry in data:
-            # We are only interested in 3.x series
-            if entry["version"] != 3:
-                continue
-
-            name = entry["name"]
-            version = name.removeprefix("Python ")
-
-            cls._releases.append(version)
-
-            # Trusting to the API that it will only return once is_latest
-            if entry["is_latest"]:
-                cls._latest_version = version
-
-    @classproperty
-    def releases(cls):  # noqa: N805
-        if not cls._releases:
-            cls.update_release_cache()
-
-        return cls._releases
-
-    @classproperty
-    def latest_version(cls) -> str:  # noqa: N805
-        if not cls._latest_version:
-            cls.update_release_cache()
-
-        return cls._latest_version
+        environment.globals["validate_python_version"] = cls.validate
+        environment.globals["latest_python_version"] = cls.latest_version
 
     @classmethod
     def validate(cls, version: str) -> str:
