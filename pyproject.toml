@@ -24,13 +24,13 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "copier==9.16.0",
+    "copier==9.17.0",
     "ipdb==0.13.13",
     "ipython==9.15.0",
     { include-group = "test" },
 ]
 test = [
-    "faker==40.28.1",
+    "faker==40.36.0",
     "pytest==9.1.1",
     "pytest-randomly==4.1.0",
     "pytest-xdist==3.8.0",
