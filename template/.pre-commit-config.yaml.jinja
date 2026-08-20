@@ -12,26 +12,26 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.25.1
+    rev: v2.28.0
     hooks:
       - id: pyproject-fmt
 
   {% if project_type == "Application" %}
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.11.24
+    rev: 0.12.5
     hooks:
       - id: uv-lock
   {% endif %}
 
   {% if use_ty %}
   - repo: https://github.com/astral-sh/ty-pre-commit
-    rev: v0.0.55
+    rev: v0.0.72
     hooks:
       - id: ty
   {% endif %}
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.15.20
+    rev: v0.16.3
     hooks:
       - id: ruff-check
         args: ["--fix"]
@@ -60,12 +60,12 @@ repos:
           - pyjson5==2.0.1
 
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.26.1
+    rev: v1.29.0
     hooks:
       - id: zizmor
         args: ["--no-progress", "--persona=auditor"]
 
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.2
+    rev: v2.4.3
     hooks:
       - id: codespell
