@@ -48,10 +48,8 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
         with:
           persist-credentials: false
-
-      {# TODO: Find out why the following Jinja tags cause an extra newline #}
       {% if project_type == "Application" %}
-      {%- raw %}
+      {% raw %}
       - name: Install uv ${{ env.UV_VERSION }} & Python ${{ env.PYTHON_VERSION }}
         uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
         with:
@@ -84,17 +82,17 @@ jobs:
           {% else %}
           uv run pytest
           {% endif %}
-
       {% if use_codecov %}
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f  # v7.0.0
         with:
           {%- raw %}
           token: ${{ secrets.CODECOV_TOKEN }}
           {% endraw %}
-
       {% endif %}
       {% if project_type == "Library" %}
+
       - name: Build package
         run: uv build
 
@@ -103,5 +101,4 @@ jobs:
 
       - name: Verify import works
         run: uv run python -c "import {{ package_name }}; print({{ package_name }}.__version__)"
-
       {% endif %}
