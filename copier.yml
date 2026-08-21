@@ -4,6 +4,7 @@ _min_copier_version: "9.0.0"
 _jinja_extensions:
   - copier_template_extensions.TemplateExtensionLoader
   - extensions/python_versions.py:PythonVersionsExtension
+  - extensions/description_validation.py:DescriptionValidationExtension
 
 _envops:
   trim_blocks: true
@@ -66,8 +67,9 @@ package_name:
 
 project_description:
   type: str
-  help: "Project description (one line)"
+  help: "Project description (one line; cannot contain quotes, backslashes, or newlines)"
   default: ""
+  validator: "{{ validate_description(project_description) }}"
 
 author_name:
   type: str
