@@ -9,6 +9,9 @@ name = "{{ package_name }}"
 version = "0.1.0"
 description = "{{ project_description }}"
 readme = "README.md"
+{% if license != "None" %}
+license = "{{ license }}"
+{% endif %}
 authors = [
     { name = "{{ author_name }}", email = "{{ author_email }}" },
 ]

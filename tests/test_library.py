@@ -100,6 +100,18 @@ def test_requires_python(generated_lib: dict) -> None:
     assert "package = false" not in content
 
 
+def test_license(generated_lib: dict) -> None:
+    path = generated_lib["path"]
+    license_type = generated_lib["answers"]["license"]
+
+    content = (path / "pyproject.toml").read_text(encoding="utf-8")
+
+    if license_type == "None":
+        assert "license = " not in content
+    else:
+        assert f'license = "{license_type}"' in content
+
+
 def test_urls(generated_lib: dict) -> None:
     path = generated_lib["path"]
     github_username = generated_lib["answers"]["github_username"]
