@@ -109,6 +109,18 @@ def test_requires_python(generated_app: dict) -> None:
     assert f'requires-python = "=={python_version}"' in content
 
 
+def test_license(generated_app: dict) -> None:
+    path = generated_app["path"]
+    license_type = generated_app["answers"]["license"]
+
+    content = (path / "pyproject.toml").read_text(encoding="utf-8")
+
+    if license_type == "None":
+        assert "license = " not in content
+    else:
+        assert f'license = "{license_type}"' in content
+
+
 def test_urls(generated_app: dict) -> None:
     path = generated_app["path"]
 
