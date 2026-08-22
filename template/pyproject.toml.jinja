@@ -63,6 +63,8 @@ dev = [
     {% endif %}
     "ipdb==0.13.13",
     "ipython==9.16.1",
+    # Having ruff in the venv helps with IDE's auto lint/format integrations
+    "ruff==0.16.4",
     {% if use_ty %}
     "ty==0.0.73",
     {% endif %}
