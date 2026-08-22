@@ -1,3 +1,17 @@
+{% if project_type == "Library" -%}
+from pytest import fail
+
+
+def test_version() -> None:
+    try:
+        from my_awesome_project import __version__
+    except ImportError:
+        fail("Can't import `__version__` from the package")
+    else:
+        assert __version__ == "0.1.0"
+
+
+{% endif -%}
 # https://docs.pytest.org/en/stable/#a-quick-example
 def inc(x):
     return x + 1
