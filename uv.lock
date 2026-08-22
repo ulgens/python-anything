@@ -556,7 +556,6 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "copier-template-extensions" },
-    { name = "jinja2" },
 ]
 
 [package.dev-dependencies]
@@ -579,10 +578,7 @@ test = [
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "copier-template-extensions", specifier = "==0.3.3" },
-    { name = "jinja2", specifier = "==3.1.6" },
-]
+requires-dist = [{ name = "copier-template-extensions", specifier = "==0.3.3" }]
 
 [package.metadata.requires-dev]
 dev = [
