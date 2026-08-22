@@ -126,3 +126,14 @@ def test_urls(generated_app: dict) -> None:
 
     content = (path / "pyproject.toml").read_text(encoding="utf-8")
     assert "[project.urls]" not in content
+
+
+def test_uv_lock_not_gitignore(generated_app: dict) -> None:
+    """
+    Applications should commit uv.lock, so it shouldn't be in .gitignore
+    """
+    path = generated_app["path"]
+
+    content = (path / ".gitignore").read_text(encoding="utf-8")
+    lines = [line.strip() for line in content.splitlines()]
+    assert "uv.lock" not in lines
