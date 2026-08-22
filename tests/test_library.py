@@ -1,6 +1,3 @@
-import re
-
-
 def test_expected_files(generated_lib: dict) -> None:
     """
     Verify the generated library has the expected files
@@ -125,7 +122,11 @@ def test_urls(generated_lib: dict) -> None:
 
 
 def test_uv_lock_gitignore(generated_lib: dict) -> None:
+    """
+    Libraries shouldn't commit uv.lock, so it should be in .gitignore
+    """
     path = generated_lib["path"]
 
     content = (path / ".gitignore").read_text(encoding="utf-8")
-    assert any(re.match(r"^uv\.lock$", line) for line in content.splitlines())
+    lines = [line.strip() for line in content.splitlines()]
+    assert "uv.lock" in lines
