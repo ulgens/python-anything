@@ -556,7 +556,6 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "copier-template-extensions" },
-    { name = "httpx" },
     { name = "jinja2" },
 ]
 
@@ -564,6 +563,7 @@ dependencies = [
 dev = [
     { name = "copier" },
     { name = "faker" },
+    { name = "httpx" },
     { name = "ipdb" },
     { name = "ipython" },
     { name = "pytest" },
@@ -581,7 +581,6 @@ test = [
 [package.metadata]
 requires-dist = [
     { name = "copier-template-extensions", specifier = "==0.3.3" },
-    { name = "httpx", specifier = "==0.28.1" },
     { name = "jinja2", specifier = "==3.1.6" },
 ]
 
@@ -589,6 +588,7 @@ requires-dist = [
 dev = [
     { name = "copier", specifier = "==9.17.1" },
     { name = "faker", specifier = "==40.36.0" },
+    { name = "httpx", specifier = "==0.28.1" },
     { name = "ipdb", specifier = "==0.13.13" },
     { name = "ipython", specifier = "==9.16.1" },
     { name = "pytest", specifier = "==9.1.1" },
