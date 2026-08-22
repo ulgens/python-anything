@@ -42,26 +42,26 @@ uv tool install "copier>=9" --with "copier-template-extensions==0.3.3"
 ### Create a new project
 
 ```bash
-copier copy --trust gh:ulgens/python-anything ./my-project
+copier copy --trust gh:ulgens/python-anything ./my-awesome-project
 ```
 
 ### Template questions
 
-| Question              | Description                               | Default                                              |
-|-----------------------|-------------------------------------------|------------------------------------------------------|
-| `project_name`        | Project name (e.g., `my-awesome-project`) | `my-awesome-project`                                 |
-| `project_description` | One-line description                      | `""`                                                 |
-| `author_name`         | Author full name                          | `Jane Doe`                                           |
-| `author_email`        | Author email                              | `janedoe@example.com`                                |
-| `github_username`     | GitHub username or organization           | `janedoe`                                            |
-| `project_type`        | Project type                              | `Application` (Application, Library)                 |
-| `python_version`      | Python version (X.Y.Z)                    | The latest stable patch version                      |
-| `min_python_version`  | Minimum supported Python version          | `3.12` (Library only)                                |
-| `max_python_version`  | Maximum supported Python version          | `3.15` (Library only)                                |
-| `license`             | License type                              | `MIT` (MIT, BSD-3-Clause, Apache-2.0, GPL-3.0, None) |
-| `frameworks`          | Frameworks & libraries                    | `[]` (Click, FastAPI, LangChain)                     |
-| `use_codecov`         | Enable Codecov integration                | `false`                                              |
-| `use_ty`              | Enable ty type checker                    | `false`                                              |
+| Question              | Description                                  | Default                     | Options                                              | For |
+|-----------------------|----------------------------------------------|-----------------------------|------------------------------------------------------|-----|
+| `project_name`        | Project name                                 | `my-awesome-project`        | Free text input                                      | All |
+| `project_description` | One-line description                         |                             | Free text input                                      | All |
+| `author_name`         | Author name                                  | `Jane Doe`                  | Free text input                                      | All |
+| `author_email`        | Author email                                 | `janedoe@example.com`       | Free text input                                      | All |
+| `github_username`     | GitHub username or organization              | `janedoe`                   | Free text input                                      | All |
+| `project_type`        | Project type                                 | `Application`               | `Application`, `Library`                             | All |
+| `python_version`      | Python version (X.Y.Z)                       | Latest stable patch release | Any valid Python version                             | App |
+| `min_python_version`  | Minimum supported Python version (inclusive) | `3.12`                      | `3.11`, `3.12`, `3.13`, `3.14`, `3.15`               | Lib |
+| `max_python_version`  | Maximum supported Python version (exclusive) | `3.15`                      | `3.12`, `3.13`, `3.14`, `3.15`, `3.16`               | Lib |
+| `license`             | License type                                 | `MIT`                       | `MIT`, `BSD-3-Clause`, `Apache-2.0`, `GPL-3.0`, None | All |
+| `frameworks`          | Frameworks & libraries to include            | None                        | Click, FastAPI, LangChain                            | App |
+| `use_codecov`         | Enable Codecov integration                   | false                       | true, false                                          | All |
+| `use_ty`              | Enable ty type checker                       | false                       | true, false                                          | All |
 
 ### After generation
 
