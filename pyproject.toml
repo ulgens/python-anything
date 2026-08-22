@@ -21,7 +21,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "copier==9.17.1",
+    "copier==9.17.2",
     "httpx==0.28.1",
     "ipdb==0.13.13",
     "ipython==9.16.1",
