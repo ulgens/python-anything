@@ -108,7 +108,7 @@ python_version_minor:
 
 min_python_version:
   type: str
-  help: "Minimum supported Python version"
+  help: "Minimum supported Python version (inclusive)"
   choices:
     - "3.11"
     - "3.12"
