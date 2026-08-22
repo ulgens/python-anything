@@ -7,7 +7,7 @@ __all__ = ("DescriptionValidationExtension",)
 
 class DescriptionValidationExtension(Extension):
     """
-    Jinja2 extension that provides TOML string validation and escaping.
+    Jinja2 extension that provides TOML string validation.
 
     These characters break pyproject.toml file structure when not escaped.
     Escaping them requires making assumptions about what user aims for and what end result is acceptable,
