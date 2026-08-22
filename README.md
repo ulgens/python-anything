@@ -25,8 +25,17 @@ A [Copier](https://copier.readthedocs.io/) template for Python projects with opi
 ## Requirements
 
 - [Copier](https://copier.readthedocs.io/) >= 9.0.0
+- [copier-template-extensions](https://github.com/copier-org/copier-template-extensions)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/)
 - [prek](https://prek.j178.dev/installation/)
+
+## Installation
+
+Make sure all the requirements are met. Copier and copier-related dependencies can be installed using
+
+```bash
+uv tool install "copier>=9" --with "copier-template-extensions==0.3.3"
+```
 
 ## Usage
 
