@@ -5,8 +5,8 @@
     // https://github.com/ulgens/renovate-presets
     "github>ulgens/renovate-presets:all.json5#v0.0.11",
   ],
-  // uv.lock is in .gitignore because the project is a library.
   {% if project_type == "Library" %}
+  // uv.lock is in .gitignore because the project is a library.
   "lockFileMaintenance": {
     "enabled": false,
   },
