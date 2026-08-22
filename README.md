@@ -48,7 +48,7 @@ copier copy --trust gh:ulgens/python-anything ./my-project
 | `python_version`      | Python version (X.Y.Z)                    | The latest stable patch version                      |
 | `license`             | License type                              | `MIT` (MIT, BSD-3-Clause, Apache-2.0, GPL-3.0, None) |
 | `frameworks`          | Frameworks & libraries                    | `[]` (Click, FastAPI, LangChain)                     |
-| `use_codecov`         | Enable Codecov integration                | `true`                                               |
+| `use_codecov`         | Enable Codecov integration                | `false`                                              |
 | `use_ty`              | Enable ty type checker                    | `false`                                              |
 
 ### After generation
