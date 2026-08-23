@@ -58,6 +58,8 @@ Issues = "https://github.com/{{ github_username }}/{{ package_name }}/issues"
 {% endif %}
 [dependency-groups]
 dev = [
+    "copier==9.17.2",
+    "copier-template-extensions==0.3.3",
     {% if use_codecov %}
     "coverage==7.15.4",
     {% endif %}
