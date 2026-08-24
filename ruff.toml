@@ -96,9 +96,6 @@ select = [
 
 ]
 ignore = [
-    # Line lengths are checked & managed by ruff, don't need to check again.
-    # https://docs.astral.sh/ruff/rules/line-too-long/
-    "E501",
     # I don't think the risk defined under S607 applies for the repo.
     # Also, hardcoding a system path while actively using venvs feels like an antipattern.
     # https://docs.astral.sh/ruff/rules/start-process-with-partial-path/
