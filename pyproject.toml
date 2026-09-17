@@ -32,7 +32,7 @@ dev = [
 test = [
     "faker==40.37.0",
     "pytest==9.1.1",
-    "pytest-randomly==4.1.0",
+    "pytest-randomly==5.0.0",
     "pytest-xdist==3.8.0",
 ]
 
