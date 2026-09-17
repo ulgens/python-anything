@@ -45,14 +45,8 @@ repos:
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.38.0
     hooks:
-      # TODO:
-      #   Consider migrating to actionlint
-      #   https://github.com/python-jsonschema/check-jsonschema/issues/586
-      #   https://github.com/rhysd/actionlint
       - id: check-github-workflows
       - id: check-github-workflows-require-timeout
-        # https://github.com/python-jsonschema/check-jsonschema/pull/643#issuecomment-3903138224
-        # https://github.com/python-jsonschema/check-jsonschema/issues/586
       - id: check-renovate
         files: ^renovate.json5$
         language: python
