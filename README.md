@@ -4,6 +4,9 @@
 
 [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
 
+[![Git Hooks](https://img.shields.io/github/actions/workflow/status/ulgens/python-anything/git-hooks.yml?logo=github&label=Git%20Hooks)](https://github.com/ulgens/python-anything/actions/workflows/git-hooks.yml)
+[![Tests](https://img.shields.io/github/actions/workflow/status/ulgens/python-anything/tests.yml?logo=github&label=Tests)](https://github.com/ulgens/python-anything/actions/workflows/tests.yml)
+
 </div>
 
 A [Copier](https://copier.readthedocs.io/) template for Python projects with opinionated tooling.
