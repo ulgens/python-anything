@@ -21,16 +21,16 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "copier==9.17.2",
+    "copier==9.18.2",
     "httpx==0.28.1",
     "ipdb==0.13.13",
-    "ipython==9.17.0",
+    "ipython==9.17.1",
     # Having ruff in the venv helps with IDE's auto lint/format integrations
     "ruff==0.16.5",
     { include-group = "test" },
 ]
 test = [
-    "faker==40.37.0",
+    "faker==40.38.0",
     "pytest==9.1.1",
     "pytest-randomly==4.1.0",
     "pytest-xdist==3.8.0",
