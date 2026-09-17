@@ -25,7 +25,6 @@ def test_expected_files(generated_lib: dict) -> None:
         "src/tests/__init__.py",
         "src/tests/test_sample.py",
         "yamlfmt.yaml",
-        # TODO: Missing license check
     )
 
     for f in expected_files:
