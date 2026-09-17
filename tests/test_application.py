@@ -26,7 +26,6 @@ def test_expected_files(generated_app: dict) -> None:
         "src/tests/test_sample.py",
         "uv.lock",
         "yamlfmt.yaml",
-        # TODO: Missing license check
     )
 
     for f in expected_files:
