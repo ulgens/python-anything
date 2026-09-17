@@ -6,12 +6,14 @@ from pathlib import Path
 import httpx
 from packaging.version import Version
 
+__all__ = ("dump_python_versions",)
+
 API_URL = "https://www.python.org/api/v2/downloads/release/"
 TIMEOUT = 10
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-def main():
+def dump_python_versions():
     releases = []
     latest = ""
 
@@ -47,4 +49,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    dump_python_versions()
