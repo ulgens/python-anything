@@ -76,14 +76,14 @@ wheels = [
 
 [[package]]
 name = "copier-template-extensions"
-version = "0.3.3"
+version = "0.3.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "copier" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8a/47/1a6638b4323a9eba2f19f4b1364bd77fcdb2b525a1c1cccb1f73422ff97e/copier_template_extensions-0.3.3.tar.gz", hash = "sha256:86bd5e2e89c94b6f9321e4078781b4456c5658b820bcae49ac60fd1e1dd23c10", size = 34991, upload-time = "2025-07-15T10:40:41.309Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/ac/f5/5a67301e6da8729c06b583de290c9840d8c89d6cddd3b47a347bef2a767a/copier_template_extensions-0.3.4.tar.gz", hash = "sha256:ec9d2c50c6d6cdd54f11d1bedffcc01ca40cf74cc3035e171cb4d3fef38bb3ea", size = 40461, upload-time = "2026-10-06T08:50:24.202Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/c6/da/117372469b9bb1555ae7f8a0b1f3e00345044e6006c50f3f6d3cb20c9843/copier_template_extensions-0.3.3-py3-none-any.whl", hash = "sha256:bf6bbdebada26132640d6e1128723fa1ff7eb59d008de07a7543c51e0facb0ea", size = 9893, upload-time = "2025-07-15T10:40:39.928Z" },
+    { url = "https://files.pythonhosted.org/packages/67/72/058b8db6813d6390daddfa5ae7684e7b6bdb044bc0c1e1f0da2d0c3bacd0/copier_template_extensions-0.3.4-py3-none-any.whl", hash = "sha256:81c66adf2dbf77bedf8caf86d4494548b294671cdb276f6370eb111f40f38b39", size = 14657, upload-time = "2026-10-06T08:50:22.825Z" },
 ]
 
 [[package]]
@@ -127,14 +127,14 @@ wheels = [
 
 [[package]]
 name = "faker"
-version = "40.39.0"
+version = "40.43.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "tzdata", marker = "sys_platform == 'win32'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/6d/62/fea935af7a312f073c99d470b05a7c96650ee8d9562ce82e8cb7ee4c1247/faker-40.39.0.tar.gz", hash = "sha256:52799ad96fcf92aab2fc96a9e03869bbf1a634300f7cd91c38dbfd51f639f6fa", size = 2029463, upload-time = "2026-09-14T16:50:17.939Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/33/6c/b8793efc2f00a912ef17cf0b61b717cddf34607499efcb8a32238c119368/faker-40.43.0.tar.gz", hash = "sha256:02fae4327c03a4a6315e1b428a3878f435bfc276c93435ea349b95c0c9372361", size = 2032713, upload-time = "2026-10-09T20:06:29.652Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/45/c8/901282279841ebb59216433be01aac825fb905e1a597de3b7b5ab8b0c43e/faker-40.39.0-py3-none-any.whl", hash = "sha256:c4c7ec2cddfaf602c5a8a2c960614946aa8c161250bd9d49a8846cd24d1ef028", size = 2066232, upload-time = "2026-09-14T16:50:16.061Z" },
+    { url = "https://files.pythonhosted.org/packages/81/ed/0d6d0d6467ae3d009fb82fb411867c7fcfeadbdd25602cab0d7a7963f400/faker-40.43.0-py3-none-any.whl", hash = "sha256:9dd7c0ddfaf30c842b05502d3cf641c135e0120a3a19047008ba8525b72953ed", size = 2069082, upload-time = "2026-10-09T20:06:27.166Z" },
 ]
 
 [[package]]
@@ -585,12 +585,12 @@ test = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "copier-template-extensions", specifier = "==0.3.3" }]
+requires-dist = [{ name = "copier-template-extensions", specifier = "==0.3.4" }]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "copier", specifier = "==9.18.2" },
-    { name = "faker", specifier = "==40.39.0" },
+    { name = "faker", specifier = "==40.43.0" },
     { name = "httpx", specifier = "==0.28.1" },
     { name = "ipdb", specifier = "==0.13.13" },
     { name = "ipython", specifier = "==9.17.1" },
@@ -600,7 +600,7 @@ dev = [
     { name = "ruff", specifier = "==0.17.0" },
 ]
 test = [
-    { name = "faker", specifier = "==40.39.0" },
+    { name = "faker", specifier = "==40.43.0" },
     { name = "pytest", specifier = "==9.1.1" },
     { name = "pytest-randomly", specifier = "==5.0.0" },
     { name = "pytest-xdist", specifier = "==3.8.0" },
