@@ -24,7 +24,7 @@ dev = [
     "copier==9.19.1",
     "httpx==0.28.1",
     "ipdb==0.13.13",
-    "ipython==9.17.1",
+    "ipython==9.18.1",
     # Having ruff in the venv helps with IDE's auto lint/format integrations
     "ruff==0.17.3",
     { include-group = "test" },
